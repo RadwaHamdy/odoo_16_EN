@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="hr_competencies_form_view" model="ir.ui.view">
+            <field name="name">hr.competencies.form.view</field>
+            <field name="model">hr.competencies</field>
+            <field name="arch" type="xml">
+                <form string="Competencies">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+
+                        </group>
+                        <group>
+
+                        </group>
+                        <field name="hr_competencies_lines">
+                                     <tree string="Competencies Lines" editable="bottom">
+                                         <field name="line_description"/>
+                                         <field name="level"/>
+                                     </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_competencies_list_view"  model="ir.ui.view" >
+            <field name="name">hr.competencies.list.view</field>
+            <field name="model">hr.competencies</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hr_competencies_action"  model="ir.actions.act_window">
+            <field name="name">Hr Competencies</field>
+            <field name="res_model">hr.competencies</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Competencies" id="hr_competencies_menu_list"
+              parent="hr_appraisal.menu_hr_appraisal_configuration"
+              sequence="54"
+              action="hr_competencies_action" />
+</odoo>
